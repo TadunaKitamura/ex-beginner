@@ -13,7 +13,7 @@ import jakarta.servlet.ServletContext;
 public class Exam03Controller {
 
 	@Autowired
-	private ServletContext aplication;
+	private ServletContext application;
 
 	@GetMapping("/index")
 	public String index() {
@@ -22,9 +22,15 @@ public class Exam03Controller {
 
 	@PostMapping("/total-price")
 	public String totalPrice(Integer price1, Integer price2, Integer price3) {
-		aplication.setAttribute("subtotal", price1 + price2 + price3);
-		aplication.setAttribute("total", (price1 + price2 + price3) * 1.1);
+//		aplication.setAttribute("price1", price1);
+//		aplication.setAttribute("price2", price2);
+//		aplication.setAttribute("price3", price3);
+		application.setAttribute("subtotal", price1 + price2 + price3);
+		application.setAttribute("total", (int)((price1 + price2 + price3) * 1.1));
+
 		return "exam03-result.html";
 	}
+
+	
 
 }
